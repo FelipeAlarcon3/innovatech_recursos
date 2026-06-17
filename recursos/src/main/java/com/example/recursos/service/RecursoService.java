@@ -32,11 +32,11 @@ public class RecursoService {
         return repository.save(recurso);
     }
 
-    public Optional<Recurso> buscarPorId(Long id){
+    public Optional<Recurso> buscarPorId(String id){
         return repository.findById(id);
     }
 
-    public Optional<Recurso> asignar(Long id, Long proyectoId){
+    public Optional<Recurso> asignar(String id, Long proyectoId){
         return repository.findById(id).map(recurso -> {
             recurso.setProyectoAsignadoId(proyectoId);
             recurso.setDisponible(false);
@@ -44,7 +44,7 @@ public class RecursoService {
         });
     }
 
-    public void eliminar(Long id){
+    public void eliminar(String id){
         repository.deleteById(id);
     }
 }

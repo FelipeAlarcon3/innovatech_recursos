@@ -1,6 +1,5 @@
 package com.example.recursos.controller;
 
-
 import com.example.recursos.model.Recurso;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -38,15 +37,17 @@ public class RecursoController {
         return service.guardar(recurso);
     }
 
+    // 📝 CAMBIO VISUAL: @PathVariable String id (Mantiene el proyectoId como Long porque la relación en la base de proyectos sigue siendo numérica)
     @PutMapping("/{id}/asignar/{proyectoId}")
-    public ResponseEntity<Recurso> asignar(@PathVariable Long id, @PathVariable Long proyectoId) {
+    public ResponseEntity<Recurso> asignar(@PathVariable String id, @PathVariable Long proyectoId) {
         return service.asignar(id, proyectoId)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
 
+    // 📝 CAMBIO VISUAL: @PathVariable String id
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> eliminar(@PathVariable Long id) {
+    public ResponseEntity<Void> eliminar(@PathVariable String id) {
         service.eliminar(id);
         return ResponseEntity.noContent().build();
     }

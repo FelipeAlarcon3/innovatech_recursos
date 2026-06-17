@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/recursos.iml" filepath="$PROJECT_DIR$/.idea/recursos.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/innovatech_recursos.iml" filepath="$PROJECT_DIR$/.idea/innovatech_recursos.iml" />
+      <module fileurl="file://$PROJECT_DIR$/recursos/recursos.iml" filepath="$PROJECT_DIR$/recursos/recursos.iml" />
     </modules>
   </component>
 </project>

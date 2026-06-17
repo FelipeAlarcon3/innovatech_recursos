@@ -12,7 +12,6 @@ public class Recurso {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String nombre;
     private String rol;
     private String equipo;
