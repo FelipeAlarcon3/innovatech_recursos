@@ -37,7 +37,12 @@ public class RecursoController {
         return service.guardar(recurso);
     }
 
-    // 📝 CAMBIO VISUAL: @PathVariable String id (Mantiene el proyectoId como Long porque la relación en la base de proyectos sigue siendo numérica)
+    @PutMapping("/{id}")
+    public ResponseEntity<Recurso> actualizar(@PathVariable Long id, @RequestBody Recurso recurso) {
+        recurso.setId(id);
+        return ResponseEntity.ok(service.guardar(recurso));
+    }
+
     @PutMapping("/{id}/asignar/{proyectoId}")
     public ResponseEntity<Recurso> asignar(@PathVariable String id, @PathVariable Long proyectoId) {
         return service.asignar(id, proyectoId)
@@ -45,7 +50,6 @@ public class RecursoController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    // 📝 CAMBIO VISUAL: @PathVariable String id
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> eliminar(@PathVariable String id) {
         service.eliminar(id);
