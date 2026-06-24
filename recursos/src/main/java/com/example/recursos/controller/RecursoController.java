@@ -16,7 +16,6 @@ public class RecursoController {
     public RecursoController(RecursoService service) {
         this.service = service;
     }
-
     @GetMapping
     public List<Recurso> listar() {
         return service.listar();
